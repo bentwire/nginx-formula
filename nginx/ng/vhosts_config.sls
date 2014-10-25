@@ -43,8 +43,8 @@
     {%- if nginx.lookup.vhost_use_symlink %}
   file.symlink:
     {{ sls_block(nginx.vhosts.symlink_opts) }}
-    - name: {{ vhost_path(vhost, state) }}
-    - target: {{ vhost_path(vhost, anti_state) }}
+    - target: {{ vhost_path(vhost, state) }}
+    - name: {{ vhost_path(vhost, anti_state) }}
     {%- else %}
   file.rename:
     {{ sls_block(nginx.vhosts.rename_opts) }}
